@@ -81,7 +81,7 @@ function LoginPage(props) {
         return (
           <div className="app">
 
-            <Title level={2}>Log In</Title>
+            <Title style={{ marginBottom: '3rem' }} level={2}>Log in</Title>
             <form onSubmit={handleSubmit} style={{ width: '350px' }}>
 
               <Form.Item required>
@@ -125,14 +125,11 @@ function LoginPage(props) {
               )}
 
               <Form.Item>
-                <Checkbox id="rememberMe" onChange={handleRememberMe} checked={rememberMe} >Remember me</Checkbox>
-                <a className="login-form-forgot" href="/reset_user" style={{ float: 'right' }}>
-                  forgot password
-                  </a>
+
                 <div>
                   <Button type="primary" htmlType="submit" className="login-form-button" style={{ minWidth: '100%' }} disabled={isSubmitting} onSubmit={handleSubmit}>
                     Log in
-                </Button>
+                  </Button>
                 </div>
                 Or <a href="/register">register now!</a>
               </Form.Item>

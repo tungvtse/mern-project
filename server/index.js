@@ -15,13 +15,13 @@ const config = require("./config/key");
 //   .catch(err => console.error(err));
 
 const mongoose = require("mongoose");
-const connect = mongoose.connect(config.mongoURI,
-  {
-    useNewUrlParser: true, useUnifiedTopology: true,
-    useCreateIndex: true, useFindAndModify: false
-  })
-  .then(() => console.log('MongoDB Connected...'))
-  .catch(err => console.log(err));
+const url = 'mongodb://127.0.0.1/travellers';
+
+const connect = mongoose.connect(url);
+
+connect.then((db) => {
+  console.log("Connected correctly to server");
+}, (err) => { console.log(err); });
 
 app.use(cors())
 
@@ -34,6 +34,8 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use('/api/users', require('./routes/users'));
+app.use('/api/product', require('./routes/product'));
+
 
 
 //use this to show the image you have in node js server to client (react js)
